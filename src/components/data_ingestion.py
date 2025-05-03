@@ -24,6 +24,10 @@ class DataIngestion:
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok = True)
 
             df.to_csv(self.ingestion_config.raw_data_path,index = False,header = True)
+            df['total'] = df['math_score'] + df['reading_score'] + df['writing_score']
+            df['average'] = df['total']/3
+            num = ['math_score','reading_score','writing_score']
+            df = df.drop(num,axis= 1)
             logging.info('train test split initiated')
 
             train_set,test_set = train_test_split(df,test_size=0.2,random_state=42)
