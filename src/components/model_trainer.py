@@ -36,9 +36,27 @@ class ModelTrainer:
                 'random forest':RandomForestRegressor(),
                 'K-Neighbors':KNeighborsRegressor(),
             }
+            params = {
+                "Decision tree":{
+                    'criterion':['squared_error','absolute_error','poisson'],
+
+                },
+                "random forest":{
+                    'n_estimators':[8,16,32,64,128]
+                  
+                },
+                'linear regression':{
+                    'fit_intercept': [True, False]
+                },
+                'K-Neighbors':{
+                    'n_neighbors':[3,5,7,9,11]}
+            }
 
 
-            model_report:dict = evaluate_models(X_train=X_train,y_train=y_train,X_test = X_test,y_test = y_test,models=models)
+
+
+            model_report:dict = evaluate_models(X_train=X_train,y_train=y_train,X_test = X_test,y_test = y_test,
+                                                models=models,param = params)
             
             best_model_score = max(sorted(model_report.values()))
             best_model_name = list(model_report.keys())[
@@ -58,6 +76,8 @@ class ModelTrainer:
 
             predicted = best_model.predict(X_test)
             r2score = r2_score(y_test,predicted)
+            return r2score
+
         except Exception as e:
             raise CustomException(e,sys)
             pass 
