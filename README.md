@@ -19,43 +19,42 @@ feaures from 1-5 are categorical features and rest are numerical. numerical feat
 
 ## project structure
 
-artifacts/
-    --data.csv
-    --model.pkl
-    --preprocessor.pkl
-    --test.csv
-    --train.csv
+artifacts/  
+    --data.csv  
+    --model.pkl   
+    --preprocessor.pkl  
+    --test.csv  
+    --train.csv  
 
-src/
-    --components/
-       -data_ingestion.py
-       -data_transformation.py
-       -model_trainer.py
-    --data/
-       -stud.csv
-       -study2.csv
-    notebook/
-       -students_performance_EDA.ipynb
-       -studentmodels.ipynb
-    pipeline/
-       -predict_pipline
-       -train_pipeline
-    exeption.py
-    logger.py
-    utils.py
+src/  
+    --components/  
+       -data_ingestion.py  
+       -data_transformation.py  
+       -model_trainer.py  
+    --data/  
+       -stud.csv  
+       -study2.csv  
+    notebook/  
+       -students_performance_EDA.ipynb    
+       -studentmodels.ipynb    
+    pipeline/  
+       -predict_pipline    
+       -train_pipeline    
+    exeption.py  
+    logger.py  
+    utils.py  
 
-templates/
-    --home.html
-    --index.html
-app.py
-README.md
-requirements.txt
+templates/  
+    --home.html  
+    --index.html  
+app.py  
+README.md  
+requirements.txt    
 setup.py       
        
 
 
-
-
+## EDA
 
 1.dataset. has shape 1000x8 initially that is converted to 1000x7.
 2.dataset does not contain any null value.
@@ -67,7 +66,16 @@ setup.py
 
 ![alt text](pictures/eda3.png)
 
+## model used
 
+1.Linear Regression
+2.Decision Tree
+3.Lasso
+4.Ridge
+
+## deployement
+
+the flask app has been deployed on render.  
 
 render link ---
-https://end-to-end-ml-project-t1b4.onrender.com
+https://end-to-end-ml-project-t1b4.onrender.com/predictdata
