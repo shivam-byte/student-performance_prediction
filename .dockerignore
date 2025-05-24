@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+.Python
+.env
+.git
+.gitignore
+artifacts/
+pictures/
+output.png
